@@ -7,7 +7,7 @@ use Faker\Provider\Base;
 
 class FakerQuillDeltaProvider extends Base
 {
-    public static array $delta = [
+    public static $delta = [
         'ops' => []
     ];
 
