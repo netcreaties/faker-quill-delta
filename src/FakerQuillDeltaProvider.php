@@ -11,10 +11,13 @@ class FakerQuillDeltaProvider extends Base
         'ops' => []
     ];
 
-    public static function buildQuillDelta($types = [])
+    public static function buildQuillDelta($elements = [])
     {
-        foreach ($types as $type => $attributes) {
-            switch ($type) {
+        foreach ($elements as $key => $element) {
+
+            $attributes = $element[key($element)];
+
+            switch (key($element)) {
                 case 'heading':
                     self::addHeading(
                         isset($attributes['size']) ? $attributes['size'] : 1
