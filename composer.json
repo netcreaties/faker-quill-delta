@@ -1,0 +1,42 @@
+{
+    "name": "netcreaties/faker-quill-delta",
+    "type": "library",
+    "description": "Generate quill delta JSON strings using faker",
+    "keywords": [
+        "faker",
+        "quill",
+        "delta",
+        "provider"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roy Freij",
+            "email": "info@royfreij.nl"
+        }
+    ],
+    "require": {
+        "php": "^7.1|^8.0",
+        "fakerphp/faker": "^1.14"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "squizlabs/php_codesniffer": "^2.9.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Netcreaties\\FakerQuillDelta\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Netcreaties\\FakerQuillDelta\\Test\\": "test/FakerQuillDelta/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "phpcs": "phpcs --standard=PSR2 src -n"
+    }
+}
