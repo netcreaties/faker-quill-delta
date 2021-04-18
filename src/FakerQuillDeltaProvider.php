@@ -26,6 +26,9 @@ class FakerQuillDeltaProvider extends Base
                 case 'paragraph':
                     self::addParagraph($attributes);
                     break;
+                case 'image':
+                    self::addImage($attributes);
+                    break;
                 default:
                     self::addBreak();
             }
@@ -80,6 +83,18 @@ class FakerQuillDeltaProvider extends Base
         self::$delta['ops'][] = [
             'insert' => $faker->paragraph,
             'attributes' => $attributes,
+        ];
+        self::addBreak();
+    }
+
+    private static function addImage($attributes = [])
+    {
+        $faker = Factory::create();
+
+        self::$delta['ops'][] = [
+            'insert' => [
+                'image' => $faker->imageUrl()
+            ]
         ];
         self::addBreak();
     }

@@ -23,6 +23,6 @@ class FakerQuillDeltaProviderTest extends PHPUnit_Framework_TestCase
 
     public function testQuillDeltaStringHasCorrectNumberOfInserts()
     {
-        $this->assertSame(9, count($this->delta['ops']));
+        $this->assertSame(8, count($this->delta['ops']));
     }
 }
