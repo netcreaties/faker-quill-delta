@@ -11,6 +11,26 @@ class FakerQuillDeltaProvider extends Base
         'ops' => []
     ];
 
+    public static function buildQuillDelta($types = [])
+    {
+        foreach ($types as $type => $attributes) {
+            switch ($type) {
+                case 'heading':
+                    self::addHeading(
+                        isset($attributes['size']) ? $attributes['size'] : 1
+                    );
+                    break;
+                case 'paragraph':
+                    self::addParagraph($attributes);
+                    break;
+                default:
+                    self::addBreak();
+            }
+        }
+
+        return self::encodeAndReset();
+    }
+
     public static function quillDeltaString($heading = true, $paragraphs = 3)
     {
         if ($heading) {
@@ -21,6 +41,11 @@ class FakerQuillDeltaProvider extends Base
             self::addParagraph();
         }
 
+        return self::encodeAndReset();
+    }
+
+    private static function encodeAndReset()
+    {
         $json = json_encode(self::$delta);
 
         self::$delta = [
@@ -38,20 +63,20 @@ class FakerQuillDeltaProvider extends Base
             'insert' => $faker->sentence,
         ];
         self::$delta['ops'][] = [
-            'insert' => '\n',
+            'insert' => PHP_EOL,
             'attributes' => [
                 'header' => $size
             ]
         ];
-        self::addBreak();
     }
 
-    private static function addParagraph()
+    private static function addParagraph($attributes = [])
     {
         $faker = Factory::create();
 
         self::$delta['ops'][] = [
-            'insert' => $faker->paragraph
+            'insert' => $faker->paragraph,
+            'attributes' => $attributes,
         ];
         self::addBreak();
     }
@@ -59,7 +84,7 @@ class FakerQuillDeltaProvider extends Base
     private static function addBreak()
     {
         self::$delta['ops'][] = [
-            'insert' => '\n'
+            'insert' => PHP_EOL
         ];
     }
 }
