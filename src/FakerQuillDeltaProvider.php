@@ -30,7 +30,7 @@ class FakerQuillDeltaProvider extends Base
         return $json;
     }
 
-    private static function addHeading(int $size = 1)
+    private static function addHeading($size = 1)
     {
         $faker = Factory::create();
 

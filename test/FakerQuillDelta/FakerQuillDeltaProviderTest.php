@@ -7,7 +7,7 @@ use Netcreaties\FakerQuillDelta\FakerQuillDeltaProvider;
 
 class FakerQuillDeltaProviderTest extends PHPUnit_Framework_TestCase
 {
-    private array $delta;
+    private $delta;
 
     protected function setUp()
     {
