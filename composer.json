@@ -28,11 +28,6 @@
             "Netcreaties\\FakerQuillDelta\\": "src/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Netcreaties\\FakerQuillDelta\\Test\\": "test/FakerQuillDelta/"
-        }
-    },
     "config": {
         "sort-packages": true
     },
